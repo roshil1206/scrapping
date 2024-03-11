@@ -1,8 +1,12 @@
 const { Builder, Browser, By, until } = require("selenium-webdriver");
-const { print, getJSON } = require("./utils");
+const { getJSON } = require("./utils");
+const chrome = require("selenium-webdriver/firefox");
 
 const getDriver = async () => {
-  return await new Builder().forBrowser(Browser.CHROME).build();
+  return await new Builder()
+    .forBrowser(Browser.FIREFOX)
+    .setFirefoxOptions(new chrome.Options().addArguments("--headless"))
+    .build();
 };
 
 const openWebsite = async (driver, website) => {

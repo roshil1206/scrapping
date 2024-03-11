@@ -14,8 +14,10 @@ const main = async () => {
 
     const existingJobs = await JobsModel.find();
     const newJobs = getUniqueJobs(existingJobs, jobs);
-
-    await JobsModel.insertMany(newJobs);
+    console.log(newJobs);
+    if (newJobs.length > 0) {
+      await JobsModel.insertMany(newJobs);
+    }
   } catch (error) {
     console.log(error);
   } finally {
