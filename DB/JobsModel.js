@@ -7,6 +7,7 @@ const JobsSchema = new Schema({
   jobCategory: String,
   jobType: String,
   jobPostDate: String,
+  href: String,
 });
 
 const JobsModel = new mongoose.model("jobs", JobsSchema);
